@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, Image, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import { createBottomTabNavigator, createAppContainer, NavigationActions } from 'react-navigation';
 
 import { DrinkList } from '../containers';
+import { beer, checkout, verified } from '../../assets/images';
 
 class SettingsScreen extends React.Component {
     render() {
@@ -15,8 +16,9 @@ class SettingsScreen extends React.Component {
 }
   
 const OrderDrinksScreen = createBottomTabNavigator({
-    Home: DrinkList,
-    Settings: SettingsScreen,
+    Order: DrinkList,
+    Checkout: SettingsScreen,
+    Pickup: SettingsScreen
 });
 
 export default createAppContainer(OrderDrinksScreen);

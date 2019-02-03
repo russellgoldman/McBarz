@@ -82,7 +82,6 @@ class DrinkList extends Component {
         
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={titleStyle}>Beer</Text>
                 <View style={backgroundContainer}>
                     <ScrollView style={{ marginTop: screenHeight * (5 / pixelHeight) }}>
                         {this._renderDrinkSection()}
@@ -99,18 +98,10 @@ const styles = {
         width: screenWidth * (374 / pixelWidth),
         height: screenHeight * ((pixelHeight - 223) / pixelHeight),
         backgroundColor: 'rgba(237, 237, 237, 0.5)',
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        marginTop: screenHeight * (40 / pixelHeight),
+        borderRadius: 20,
         borderColor: 'rgba(0, 0, 0, 0.25)',
         borderWidth: 1 
-    },
-    titleStyle: {
-        marginTop: screenHeight * (80 / pixelHeight),
-        fontFamily: 'abeezee',
-        fontSize: 45,
-        color: '#F2463A',
-    },
+    }
 };
 
 export default DrinkList;
