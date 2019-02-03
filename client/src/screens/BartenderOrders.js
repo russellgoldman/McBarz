@@ -45,7 +45,7 @@ class BartenderOrders extends Component {
             name: drink.toJSON().name,
             status: drink.toJSON().status,
             number: drink.toJSON().number,
-            orderID: drink.toJSON().uid
+            orderID: drink.key
           });
         }
       })
