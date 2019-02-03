@@ -6,7 +6,8 @@ import {
 import {
     HomeScreen,
     UserModeStart,
-    OrderDrinksScreen
+    OrderDrinksScreen,
+    CheckoutScreen
 } from './screens';
 
 const RootStack = createStackNavigator(
@@ -25,6 +26,12 @@ const RootStack = createStackNavigator(
     },
     OrderDrinksScreen: {
       screen: OrderDrinksScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    CheckoutScreen: {
+      screen: CheckoutScreen,
       navigationOptions: {
         header: null
       }

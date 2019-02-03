@@ -22,6 +22,13 @@ class UserModeStart extends Component {
         }
     }
 
+    _navigate = (routeName) => {
+        var navigate = NavigationActions.navigate({
+            routeName: routeName,
+          });
+        this.props.navigation.navigate(navigate);
+    }
+
     render() {
         const { 
             titleText, subtitleText, textInputStyle, registrationAgreementContainer, registrationAgreementText, buttonStyle,
@@ -49,7 +56,7 @@ class UserModeStart extends Component {
                     <Text style={registrationAgreementText}>by clicking complete registration, you agree to our terms, data policy and cookies policy.</Text>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: screenHeight * (70 / pixelHeight) }}>
-                    <TouchableOpacity style={buttonStyle}>
+                    <TouchableOpacity style={buttonStyle} onPress={() => this._navigate('OrderDrinksScreen')}>
                         <Text style={buttonTextStyle}>Continue</Text>
                     </TouchableOpacity>
                 </View>

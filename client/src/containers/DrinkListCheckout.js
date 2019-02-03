@@ -10,56 +10,14 @@ const screenHeight = Dimensions.get('window').height;
 const pixelWidth = 414;
 const pixelHeight = 736;
 
-class DrinkList extends Component {
+class DrinkListCheckout extends Component {
     constructor() {
         super();
         this._incrementDecrementSelectedCallback = this._incrementDecrementSelectedCallback.bind(this);
     }
 
-    state = {
-        drinks: [
-            {
-                name: 'Budweiser',
-                price: '$5.95',
-                image: bud,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: 'Blue Ribbon',
-                price: '$5.95',
-                image: pbr,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: 'Heinekin',
-                price: '$5.95',
-                image: hein,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: 'Corona',
-                price: '$5.95',
-                image: corona,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: `Corona Extra`,
-                price: '$5.95',
-                image: corona,
-                selected: 0,
-                type: 'Beer'
-            }
-        ]
-    };
-
-   
-
     _renderDrinkSection = () => {
-        return this.state.drinks.map((drinkObj, index) => {
+        return this.props.drinks.map((drinkObj, index) => {
             return (
                 <View key={index}>
                     <DrinkSection name={drinkObj.name} image={drinkObj.image} price={drinkObj.price} selected={drinkObj.selected}
@@ -77,11 +35,11 @@ class DrinkList extends Component {
 
     render() {
         const {
-            backgroundContainer, titleStyle, divider
+            backgroundContainer, titleStyle, 
         } = styles;
         
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <View style={backgroundContainer}>
                     <ScrollView style={{ marginTop: screenHeight * (5 / pixelHeight) }}>
                         {this._renderDrinkSection()}
@@ -96,12 +54,15 @@ class DrinkList extends Component {
 const styles = {
     backgroundContainer: {
         width: screenWidth * (374 / pixelWidth),
-        height: screenHeight * ((pixelHeight - 223) / pixelHeight),
+        height: screenHeight * (300 / pixelHeight),
         backgroundColor: 'rgba(237, 237, 237, 0.5)',
-        borderRadius: 20,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
         borderColor: 'rgba(0, 0, 0, 0.25)',
-        borderWidth: 1 
+        borderWidth: 1,
     }
 };
 
-export default DrinkList;
+export default DrinkListCheckout;

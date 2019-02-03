@@ -3,7 +3,6 @@ import { View, Text, Dimensions, TouchableOpacity, ScrollView } from 'react-nati
 import { NavigationActions } from 'react-navigation';
 
 import { DrinkSection } from '../components';
-import { bud, corona, hein, pbr } from '../../assets/images';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -16,50 +15,8 @@ class DrinkList extends Component {
         this._incrementDecrementSelectedCallback = this._incrementDecrementSelectedCallback.bind(this);
     }
 
-    state = {
-        drinks: [
-            {
-                name: 'Budweiser',
-                price: '$5.95',
-                image: bud,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: 'Blue Ribbon',
-                price: '$5.95',
-                image: pbr,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: 'Heinekin',
-                price: '$5.95',
-                image: hein,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: 'Corona',
-                price: '$5.95',
-                image: corona,
-                selected: 0,
-                type: 'Beer'
-            },
-            {
-                name: `Corona Extra`,
-                price: '$5.95',
-                image: corona,
-                selected: 0,
-                type: 'Beer'
-            }
-        ]
-    };
-
-   
-
     _renderDrinkSection = () => {
-        return this.state.drinks.map((drinkObj, index) => {
+        return this.props.drinks.map((drinkObj, index) => {
             return (
                 <View key={index}>
                     <DrinkSection name={drinkObj.name} image={drinkObj.image} price={drinkObj.price} selected={drinkObj.selected}
@@ -70,9 +27,9 @@ class DrinkList extends Component {
     };
 
     _incrementDecrementSelectedCallback = (newSelected, index) => {
-        newDrinks = this.state.drinks;
+        newDrinks = this.props.drinks;
         newDrinks[index].selected = newSelected;
-        this.setState({ drinks: newDrinks })
+        this.props.updateDrinksCallback(newDrinks);
     }
 
     render() {
@@ -81,7 +38,7 @@ class DrinkList extends Component {
         } = styles;
         
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Text style={titleStyle}>Beer</Text>
                 <View style={backgroundContainer}>
                     <ScrollView style={{ marginTop: screenHeight * (5 / pixelHeight) }}>
@@ -97,19 +54,19 @@ class DrinkList extends Component {
 const styles = {
     backgroundContainer: {
         width: screenWidth * (374 / pixelWidth),
-        height: screenHeight * ((pixelHeight - 223) / pixelHeight),
+        height: screenHeight * (450 / pixelHeight),
         backgroundColor: 'rgba(237, 237, 237, 0.5)',
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        marginTop: screenHeight * (40 / pixelHeight),
+        borderRadius: 20,
+        marginTop: screenHeight * (20 / pixelHeight),
         borderColor: 'rgba(0, 0, 0, 0.25)',
         borderWidth: 1 
     },
     titleStyle: {
-        marginTop: screenHeight * (80 / pixelHeight),
+        marginTop: screenHeight * (75 / pixelHeight),
         fontFamily: 'abeezee',
         fontSize: 45,
         color: '#F2463A',
+        marginBottom: screenHeight * (10 / pixelHeight),
     },
 };
 
