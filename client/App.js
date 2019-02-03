@@ -21,6 +21,8 @@ export default class App extends Component {
         images: [],
         fonts: [
           {
+            'abeezee-italic': require('./assets/fonts/ABeeZee-Italic.ttf'),
+            'abeezee': require('./assets/fonts/ABeeZee-Regular.ttf'),
             'helvetica-neue-bold': require('./assets/fonts/HelveticaNeue-Bold.ttf'),
             'helvetica-neue-light': require('./assets/fonts/HelveticaNeue-Light.ttf'),
             'helvetica-neue-medium': require('./assets/fonts/HelveticaNeue-Medium.ttf'),
