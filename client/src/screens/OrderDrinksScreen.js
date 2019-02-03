@@ -20,35 +20,35 @@ class OrderDrinksScreen extends Component {
         drinks: [
             {
                 name: 'Budweiser',
-                price: '$5.95',
+                price: 5.95,
                 image: bud,
                 selected: 0,
                 type: 'Beer'
             },
             {
                 name: 'Blue Ribbon',
-                price: '$5.95',
+                price: 5.95,
                 image: pbr,
                 selected: 0,
                 type: 'Beer'
             },
             {
                 name: 'Heinekin',
-                price: '$5.95',
+                price: 5.95,
                 image: hein,
                 selected: 0,
                 type: 'Beer'
             },
             {
                 name: 'Corona',
-                price: '$5.95',
+                price: 5.95,
                 image: corona,
                 selected: 0,
                 type: 'Beer'
             },
             {
                 name: `Corona Extra`,
-                price: '$5.95',
+                price: 5.95,
                 image: corona,
                 selected: 0,
                 type: 'Beer'

@@ -10,10 +10,40 @@ const pixelWidth = 414;
 const pixelHeight = 736;
 
 class DrinkSection extends Component {
+    _renderIncrementDecrement = () => {
+        const { 
+            selectedQuantityContainer, selectedQuantityText, incrementDecrementStyle
+        } = styles;
+
+        if (this.props.mode !== 'omitIncrementDecrement') {
+            return (
+                <View style={selectedQuantityContainer}>
+                    <TouchableOpacity onPress={() => this.props.incrementDecrement(this.props.selected + 1, this.props.index)}>
+                        <Image source={increment} resizeMode='contain' style={incrementDecrementStyle} />
+                    </TouchableOpacity>
+                    <Text style={selectedQuantityText}>{this.props.selected}</Text>
+                    <TouchableOpacity onPress={() => {
+                        if (this.props.selected != 0) {
+                            this.props.incrementDecrement(this.props.selected - 1, this.props.index);
+                        }
+                    }}>
+                        <Image source={decrement} resizeMode='contain' style={incrementDecrementStyle} />
+                    </TouchableOpacity>
+                </View>
+                
+            );
+        } else {
+            return (
+                <View style={selectedQuantityContainer}>
+                    <Text style={selectedQuantityText}>{this.props.selected}</Text>
+                </View>
+            );
+        }
+    }
+
     render() {
         const { 
-            divider, sectionContainer, imageContainer, beerInfoContainer, selectedQuantityContainer,
-            beerNameStyle, priceStyle, selectedQuantityText, incrementDecrementStyle
+            divider, sectionContainer, imageContainer, beerInfoContainer, beerNameStyle, priceStyle
         } = styles;
 
         return (
@@ -25,21 +55,9 @@ class DrinkSection extends Component {
                     </View>
                     <View style={beerInfoContainer}>
                         <Text style={beerNameStyle}>{this.props.name}</Text>
-                        <Text style={priceStyle}>{this.props.price}</Text>
+                        <Text style={priceStyle}>${this.props.price}</Text>
                     </View>
-                    <View style={selectedQuantityContainer}>
-                        <TouchableOpacity onPress={() => this.props.incrementDecrement(this.props.selected + 1, this.props.index)}>
-                            <Image source={increment} resizeMode='contain' style={incrementDecrementStyle} />
-                        </TouchableOpacity>
-                        <Text style={selectedQuantityText}>{this.props.selected}</Text>
-                        <TouchableOpacity onPress={() => {
-                            if (this.props.selected != 0) {
-                                this.props.incrementDecrement(this.props.selected - 1, this.props.index);
-                            }
-                        }}>
-                            <Image source={decrement} resizeMode='contain' style={incrementDecrementStyle} />
-                        </TouchableOpacity>
-                    </View>
+                    {this._renderIncrementDecrement()}
                 </View>
             </View>
         );

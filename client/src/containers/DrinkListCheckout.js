@@ -21,7 +21,7 @@ class DrinkListCheckout extends Component {
             return (
                 <View key={index}>
                     <DrinkSection name={drinkObj.name} image={drinkObj.image} price={drinkObj.price} selected={drinkObj.selected}
-                        index={index} incrementDecrement={this._incrementDecrementSelectedCallback}/>
+                        index={index} incrementDecrement={this._incrementDecrementSelectedCallback} mode='omitIncrementDecrement'/>
                 </View>
             );
         });

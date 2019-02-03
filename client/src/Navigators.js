@@ -7,7 +7,8 @@ import {
     HomeScreen,
     UserModeStart,
     OrderDrinksScreen,
-    CheckoutScreen
+    CheckoutScreen,
+    NFCRetrievalScreen
 } from './screens';
 
 const RootStack = createStackNavigator(
@@ -35,10 +36,16 @@ const RootStack = createStackNavigator(
       navigationOptions: {
         header: null
       }
+    },
+    NFCRetrievalScreen: {
+      screen: NFCRetrievalScreen,
+      navigationOptions: {
+        header: null
+      }
     }
   },
 {
-  initialRouteName: 'OrderDrinksScreen',
+  initialRouteName: 'HomeScreen',
 });
 
 const Main = createAppContainer(RootStack);

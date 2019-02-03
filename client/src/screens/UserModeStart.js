@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Dimensions, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, Dimensions, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 const screenWidth = Dimensions.get('window').width;
@@ -56,7 +56,13 @@ class UserModeStart extends Component {
                     <Text style={registrationAgreementText}>by clicking complete registration, you agree to our terms, data policy and cookies policy.</Text>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: screenHeight * (70 / pixelHeight) }}>
-                    <TouchableOpacity style={buttonStyle} onPress={() => this._navigate('OrderDrinksScreen')}>
+                    <TouchableOpacity style={buttonStyle} onPress={() => {
+                        if (this.state.checkboxContainerColor !== '#fff' && this.state.fullName !== '' && this.state.phoneNumber !== '') {
+                            this._navigate('OrderDrinksScreen');
+                        } else {
+                            Alert.alert('Please fill all fields before continuing');
+                        }
+                    }}>
                         <Text style={buttonTextStyle}>Continue</Text>
                     </TouchableOpacity>
                 </View>
