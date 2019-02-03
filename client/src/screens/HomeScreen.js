@@ -8,6 +8,21 @@ const pixelWidth = 414;
 const pixelHeight = 736;
 
 class HomeScreen extends Component {
+    componentWillMount() {
+      console.log("hello world");
+      const url = 'https://mcbarzapi.herokuapp.com/send';
+      const data = {name: "mohamed", number: "+16478688461"};
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: "name=mohamed&number=+16478688461",
+      }).then(res => console.log(res))
+        .catch(error => console.log(error));
+    }
+
     _navigate = (routeName) => {
         var navigate = NavigationActions.navigate({
             routeName: routeName,
@@ -59,6 +74,6 @@ const styles = {
         color: '#fff',
         fontSize: 20,
     }
-}
+};
 
 export default HomeScreen;
