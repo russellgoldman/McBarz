@@ -5,6 +5,7 @@ import {
 
 import {
     HomeScreen,
+    UserModeStart
 } from './screens';
 
 const RootStack = createStackNavigator(
@@ -12,12 +13,18 @@ const RootStack = createStackNavigator(
     HomeScreen: {
         screen: HomeScreen,
         navigationOptions: {
-        header: null
+          header: null
         }
     },
+    UserModeStart: {
+      screen: UserModeStart,
+      navigationOptions: {
+        header: null
+      }
+    }
   },
 {
-  initialRouteName: 'HomeScreen',
+  initialRouteName: 'UserModeStart',
 });
 
 const Main = createAppContainer(RootStack);
