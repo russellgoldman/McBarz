@@ -6,10 +6,6 @@ const OrderItem = (props) => {
   return (
     <View>
       <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-betwen', 'margin': 20}}>
-        <Image
-        style={{width: 50, height: 50}}
-        source={{uri: props.drink.image}}
-        />
         <View>
         <Text style={{
           fontSize: 20,

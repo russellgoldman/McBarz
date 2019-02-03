@@ -8,7 +8,8 @@ import {
     UserModeStart,
     OrderDrinksScreen,
     CheckoutScreen,
-    NFCRetrievalScreen
+    NFCRetrievalScreen,
+    BartenderOrders
 } from './screens';
 
 const RootStack = createStackNavigator(
@@ -39,6 +40,12 @@ const RootStack = createStackNavigator(
     },
     NFCRetrievalScreen: {
       screen: NFCRetrievalScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    BartenderOrdersScreen: {
+      screen: BartenderOrders,
       navigationOptions: {
         header: null
       }

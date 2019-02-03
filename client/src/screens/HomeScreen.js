@@ -8,21 +8,6 @@ const pixelWidth = 414;
 const pixelHeight = 736;
 
 class HomeScreen extends Component {
-    componentWillMount() {
-      console.log("hello world");
-      const url = 'https://mcbarzapi.herokuapp.com/send';
-      const data = {name: "mohamed", number: "+16478688461"};
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: "name=mohamed&number=+16478688461",
-      }).then(res => console.log(res))
-        .catch(error => console.log(error));
-    }
-
     _navigate = (routeName) => {
         var navigate = NavigationActions.navigate({
             routeName: routeName,
@@ -31,7 +16,7 @@ class HomeScreen extends Component {
     }
 
     render() {
-        const { 
+        const {
             containerStyle, modeTextStyle, buttonStyle, buttonTextStyle
         } = styles;
 
@@ -42,7 +27,7 @@ class HomeScreen extends Component {
                     <Text style={buttonTextStyle}>User Mode</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={buttonStyle}>
-                    <Text style={buttonTextStyle}>Admin Mode</Text>
+                    <Text style={buttonTextStyle} onPress={() => this._navigate('BartenderOrdersScreen')}>Admin Mode</Text>
                 </TouchableOpacity>
             </View>
         );
