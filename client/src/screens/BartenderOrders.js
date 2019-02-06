@@ -31,8 +31,6 @@ class BartenderOrders extends Component {
     firebase.initializeApp(config);
   }
 
-
-
   getDataFromFirebase() {
     const ordersRef = firebase.database().ref('orders/1/');
     ordersRef.on('value', (childSnapshot) => {
@@ -59,11 +57,6 @@ class BartenderOrders extends Component {
     this.initializeFirebase();
     this.getDataFromFirebase();
   }
-
-// { access_token: '3c8572d2-17a2-418c-8c5c-f0bf63c82de3',
-//   token_type: 'bearer',
-//   expires_in: 259199,
-//   scope: 'read write trust' }
 
   handleComplete(orderID, name, number) {
       const orderRef = firebase.database().ref(`orders/1/${orderID}/status`);
