@@ -18,7 +18,7 @@ class ClientOrders extends Component {
 
   getDataFromFirebase() {
     let config = {
-      apiKey: "AIzaSyCpyWtUKPy2dzHcyT6fMqTMO-2jEK1NwXs",
+      apiKey: "_firebase_key_",
       authDomain: "mcbarz-9e9c5.firebaseapp.com",
       databaseURL: "https://mcbarz-9e9c5.firebaseio.com",
       projectId: "mcbarz-9e9c5",
