@@ -35,7 +35,7 @@ class Checkout extends Component {
 
   initializeFirebase() {
     let config = {
-      apiKey: "AIzaSyCpyWtUKPy2dzHcyT6fMqTMO-2jEK1NwXs",
+      apiKey: "_firebase_key_",
       authDomain: "mcbarz-9e9c5.firebaseapp.com",
       databaseURL: "https://mcbarz-9e9c5.firebaseio.com",
       projectId: "mcbarz-9e9c5",
@@ -65,7 +65,7 @@ class Checkout extends Component {
       fetch(url, {
         method: "POST",
         headers: {
-          accessToken: "Bearer 3c8572d2-17a2-418c-8c5c-f0bf63c82de3",
+          accessToken: "_interac_access_token_",
           thirdPartyAccessId: "CA1TAby3SPZrPM3D",
           requestId: "633f6ea3-6e90-4fa5-9439-d18159fdb4c3",
           deviceId: "49794efc-aefd-4e4c-a4e8-2d013ade09a9",
